@@ -1,0 +1,20 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { AdminLayout } from './layouts/AdminLayout';
+import { LoginPage } from './pages/Login/LoginPage';
+import { DashboardPage } from './pages/Dashboard/DashboardPage';
+import { CategoryManagerPage } from './pages/Categories/CategoryManagerPage';
+import { ProviderManagerPage } from './pages/Providers/ProviderManagerPage';
+import { UserManagerPage } from './pages/Users/UserManagerPage';
+import { DownloadMonitorPage } from './pages/Downloads/DownloadMonitorPage';
+import { QualityPricingPage } from './pages/QualityPricing/QualityPricingPage';
+import { ReferralSettingsPage } from './pages/Referrals/ReferralSettingsPage';
+import { BotSettingsPage } from './pages/BotSettings/BotSettingsPage';
+import { BroadcastManagerPage } from './pages/Broadcast/BroadcastManagerPage';
+import { AuditLogsPage } from './pages/Security/AuditLogsPage';
+export const App = () => {
+    return (_jsx(BrowserRouter, { children: _jsx(AuthProvider, { children: _jsxs(Routes, { children: [_jsx(Route, { path: "/login", element: _jsx(LoginPage, {}) }), _jsx(Route, { element: _jsx(ProtectedRoute, {}), children: _jsxs(Route, { element: _jsx(AdminLayout, {}), children: [_jsx(Route, { path: "/", element: _jsx(DashboardPage, {}) }), _jsx(Route, { path: "/categories", element: _jsx(CategoryManagerPage, {}) }), _jsx(Route, { path: "/providers", element: _jsx(ProviderManagerPage, {}) }), _jsx(Route, { path: "/users", element: _jsx(UserManagerPage, {}) }), _jsx(Route, { path: "/downloads", element: _jsx(DownloadMonitorPage, {}) }), _jsx(Route, { path: "/pricing", element: _jsx(QualityPricingPage, {}) }), _jsx(Route, { path: "/referrals", element: _jsx(ReferralSettingsPage, {}) }), _jsx(Route, { path: "/settings", element: _jsx(BotSettingsPage, {}) }), _jsx(Route, { path: "/broadcast", element: _jsx(BroadcastManagerPage, {}) }), _jsx(Route, { path: "/security", element: _jsx(AuditLogsPage, {}) })] }) }), _jsx(Route, { path: "*", element: _jsx(Navigate, { to: "/", replace: true }) })] }) }) }));
+};
+export default App;
