@@ -1,0 +1,20 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "admins": {
+      "$admin_uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && root.child('admins').child(auth.uid).child('role').val() === 'superadmin'"
+      }
+    },
+    "categories": { ".read": "auth != null", ".write": "auth != null" },
+    "api_providers": { ".read": "auth != null", ".write": "auth != null" },
+    "bot_settings": { ".read": "auth != null", ".write": "auth != null" },
+    "users": { ".read": "auth != null", ".write": "auth != null" },
+    "download_jobs": { ".read": "auth != null", ".write": "auth != null" },
+    "credit_transactions": { ".read": "auth != null", ".write": "auth != null" },
+    "audit_logs": { ".read": "auth != null", ".write": "auth != null" },
+    "broadcast_tasks": { ".read": "auth != null", ".write": "auth != null" }
+  }
+}
